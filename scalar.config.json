@@ -1,0 +1,26 @@
+{
+  "theme": {
+    "color": {
+      "primary": "#0052CC",
+      "secondary": "#0C1B33",
+      "background": "#F5F8FB",
+      "text": "#1A1A1A"
+    },
+    "logo": "/assets/logo-q10.png"
+  },
+
+  "customCss": [
+    "./styles.css"
+  ],
+
+  "layout": {
+    "showSidebar": true,
+    "showExamples": true
+  },
+
+  "info": {
+    "title": "Q10 API Documentation",
+    "description": "Portal de pruebas para visualizar APIs en Scalar con branding personalizado.",
+    "favicon": "/assets/favicon.png"
+  }
+}

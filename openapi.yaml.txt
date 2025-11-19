@@ -1,0 +1,173 @@
+openapi: 3.0.3
+info:
+  title: Q10 API Demo
+  version: 1.0.0
+  description: >
+    API de demostración para probar documentación en Scalar.
+    Incluye tres módulos: Pruebas, Cursos y Usuarios.
+
+servers:
+  - url: https://api.q10demo.com/v1
+
+tags:
+  - name: Pruebas
+    description: Endpoints relacionados con gestión de pruebas.
+  - name: Cursos
+    description: Endpoints para gestión de cursos.
+  - name: Usuarios
+    description: Endpoints para gestión de usuarios.
+
+paths:
+
+  ###################################
+  ## Módulo Pruebas
+  ###################################
+
+  /pruebas:
+    get:
+      tags: [Pruebas]
+      summary: Obtener listado de pruebas
+      responses:
+        '200':
+          description: Lista de pruebas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prueba'
+
+    post:
+      tags: [Pruebas]
+      summary: Crear una prueba
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Prueba'
+      responses:
+        '201':
+          description: Prueba creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prueba'
+
+  /pruebas/{id}:
+    get:
+      tags: [Pruebas]
+      summary: Obtener una prueba por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Prueba encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prueba'
+
+
+  ###################################
+  ## Módulo Cursos
+  ###################################
+
+  /cursos:
+    get:
+      tags: [Cursos]
+      summary: Obtener listado de cursos
+      responses:
+        '200':
+          description: Lista de cursos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Curso'
+
+  /cursos/{id}:
+    get:
+      tags: [Cursos]
+      summary: Obtener un curso por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Curso encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Curso'
+
+
+  ###################################
+  ## Módulo Usuarios
+  ###################################
+
+  /usuarios:
+    get:
+      tags: [Usuarios]
+      summary: Obtener usuarios del sistema
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+
+
+components:
+
+  schemas:
+
+    Prueba:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "P-001"
+        nombre:
+          type: string
+          example: "Prueba parcial 1"
+        fecha:
+          type: string
+          format: date
+
+    Curso:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "C-901"
+        nombre:
+          type: string
+          example: "Matemáticas 1"
+        creditos:
+          type: integer
+          example: 3
+
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "U-1001"
+        nombre:
+          type: string
+          example: "Carlos López"
+        correo:
+          type: string
+          example: "carlos@example.com"

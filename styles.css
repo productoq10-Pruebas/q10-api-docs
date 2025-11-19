@@ -1,0 +1,26 @@
+/* COLOR DEL SIDEBAR */
+.sidebar {
+  background-color: #0C1B33 !important;
+}
+
+/* COLOR DE TITULOS */
+h1, h2, h3 {
+  color: #0052CC !important;
+}
+
+/* BOTONES */
+button {
+  background-color: #0052CC !important;
+  border-radius: 6px !important;
+  color: #ffffff !important;
+}
+
+/* Panel de contenido */
+.main {
+  background-color: #F5F8FB !important;
+}
+
+/* Texto */
+body {
+  font-family: "Inter", sans-serif;
+}
